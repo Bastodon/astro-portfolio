@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+import type { useThemeProps } from '@mui/material';
+---
+
+<BaseLayout title="A propos de Thomas LERAY" description="Que savoir sur Thomas LERAY ?">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="À propos"
+				tagline="Merci d'avoir visité ma page ! Voici quelques informations complémentaires à propos de moi."
+			>
+				<img
+					width="1553"
+					height="873"
+					src="/assets/at-work.jpg"
+					alt="Jeanine White at work with a colleague"
+				/>
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Apprentissage</h2>
+				<div class="content">
+					<p>
+						J'ai débuté mon aventure dans l'Informatique assez jeune, quand je m'amusais à "essayer" de réparer
+						des appareils électroniques avec mon père. Plus tard, j'ai monté mon premier ordinateur et j'ai vite 
+						compris en voyant les possibilités que c'est là dedans que je voulais me passionner.
+					</p>
+					<p>
+						Plus tard, je savais déjà ce que je voulais faire : imaginer, concevoir et programmer. Après mon BAC
+						STI2D en poche, j'ai entamé mon long et périlleux parcours au travers de différentes écoles d'informatique.
+						Ça n'a pas toujours été facile, mais j'avais soif d'apprendre et de m'améliorer, comme encore aujourd'hui !
+					</p>
+					<p>
+						Aujourd'hui, je continue de chercher des défis pour m'améliorer. Découvrir ne me fait pas peur, et je sais
+						tout aussi bien travailler en équipe pour progresser ensemble que me débrouiller par mes propres moyens.
+						Mais plus important encore : je sais que développer, c'est aussi s'amuser !
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Formations</h2>
+				<div class="content">
+					<p>3 écoles supérieures, Bac+3, Licence Pro. 2 stages et une alternance, ainsi qu'une année d'emploi à plein temps.</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Langages</h2>
+				<div class="content">
+					<p>Java (Spring), JS (React), PHP (Symfony), SQL (MySQL), HTML/CSS, C, VBA, Powershell </p>
+				</div>
+			</section>
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
